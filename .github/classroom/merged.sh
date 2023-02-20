@@ -1,13 +1,16 @@
-#!/bin/bash
+#!/bin/bash 
+set -e
 
 echo Looking up if all branches are merged into master
 
-Merged:
+# Merged:
 
-git branch --merged master  | grep -P "father"
-git branch --merged master  | grep -P "lion"
-git branch --merged master  | grep -P "turtle"
+echo "Testing if father is merged to master"
+git branch --merged master  | grep -e "father$"
 
-Not Merge:
+echo "Testing if lion is merged to master"
+git branch --merged master  | grep -e "lion$"
 
-git branch --no-merged master
+echo "Testing if turtle is merged to master"
+git branch --merged master  | grep -e "turtle$"
+

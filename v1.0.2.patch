@@ -1,0 +1,60 @@
+diff --git a/.github/classroom/merged.sh b/.github/classroom/merged.sh
+index d10c115..68ab4da 100755
+--- a/.github/classroom/merged.sh
++++ b/.github/classroom/merged.sh
+@@ -1,13 +1,16 @@
+-#!/bin/bash
++#!/bin/bash 
++set -e
+ 
+ echo Looking up if all branches are merged into master
+ 
+-Merged:
++# Merged:
+ 
+-git branch --merged master  | grep -P "father"
+-git branch --merged master  | grep -P "lion"
+-git branch --merged master  | grep -P "turtle"
++echo "Testing if father is merged to master"
++git branch --merged master  | grep -e "father$"
+ 
+-Not Merge:
++echo "Testing if lion is merged to master"
++git branch --merged master  | grep -e "lion$"
++
++echo "Testing if turtle is merged to master"
++git branch --merged master  | grep -e "turtle$"
+ 
+-git branch --no-merged master
+diff --git a/.github/classroom/teamconfig.sh b/.github/classroom/teamconfig.sh
+index d215c9e..fe05eea 100755
+--- a/.github/classroom/teamconfig.sh
++++ b/.github/classroom/teamconfig.sh
+@@ -1,4 +1,5 @@
+ #!/bin/bash
++set -e 
+ 
+ git config --local include.path ../.gitconfig
+ 
+diff --git a/.github/classroom/tree.sh b/.github/classroom/tree.sh
+index eef97ec..77160de 100755
+--- a/.github/classroom/tree.sh
++++ b/.github/classroom/tree.sh
+@@ -2,4 +2,4 @@
+ 
+ echo Looking up the alias.tree setting in .gitconfig
+ 
+-git config --file $(git root)/.gitconfig --get alias.tree | grep -P "^log.*--graph" | grep -P "^log.*--all" | grep -P "^log.*--oneline"
++git config --file $(git root)/.gitconfig --get alias.tree | grep -e "^log.*--graph" | grep -e "^log.*--all" | grep -e "^log.*--oneline"
+\ No newline at end of file
+diff --git a/.github/classroom/undo.sh b/.github/classroom/undo.sh
+index 11c9e24..c5eef71 100755
+--- a/.github/classroom/undo.sh
++++ b/.github/classroom/undo.sh
+@@ -2,4 +2,4 @@
+ 
+ echo Looking up the alias.undo setting in .gitconfig
+ 
+-git config --file $(git root)/.gitconfig --get alias.undo | grep -P "^reset --soft HEAD~1"
++git config --file $(git root)/.gitconfig --get alias.undo | grep -e "^reset --soft HEAD~1$"
+\ No newline at end of file
