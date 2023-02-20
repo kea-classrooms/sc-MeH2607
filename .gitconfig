@@ -1,4 +1,7 @@
 [alias]
 	co = checkout
 	root = rev-parse --show-toplevel
-	tree = log --graph -- oneline -all
+	tree = log --graph --oneline --all
+	undo = revert
+[push]
+	default = current
