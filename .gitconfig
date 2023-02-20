@@ -3,5 +3,6 @@
 	root = rev-parse --show-toplevel
 	tree = log --graph --oneline --all
 	undo = revert
+	mergetest = .github/classroom/mergetest.sh
 [push]
 	default = current
